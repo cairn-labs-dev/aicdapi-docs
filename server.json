@@ -1,0 +1,22 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.aicdapi/records",
+  "title": "AICD API",
+  "description": "Search source-linked Dallas-Fort Worth local-government records for AI agents.",
+  "version": "1.0.0",
+  "websiteUrl": "https://aicdapi.com/help/mcp-setup",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://aicdapi.com/api/v1/mcp",
+      "headers": [
+        {
+          "name": "Authorization",
+          "description": "Full header value: Bearer <AICD API key (aicd_...)>; the account needs current paid access. Create and revoke keys at https://aicdapi.com/help/api-keys.",
+          "isRequired": true,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
