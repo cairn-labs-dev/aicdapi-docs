@@ -5,6 +5,10 @@
   "description": "Search source-linked Dallas-Fort Worth local-government records for AI agents.",
   "version": "1.0.0",
   "websiteUrl": "https://aicdapi.com/help/mcp-setup",
+  "repository": {
+    "url": "https://github.com/cairn-labs-dev/aicdapi-docs",
+    "source": "github"
+  },
   "remotes": [
     {
       "type": "streamable-http",
