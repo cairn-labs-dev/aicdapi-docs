@@ -7,10 +7,11 @@ server for Dallas-Fort Worth local-government records.
   Registry `server.json` schema (revision `2025-12-11`). Registry name:
   `com.aicdapi/records`.
 
-The same record is published by AICD API at `https://aicdapi.com/server.json`, with a
+The record is served by AICD API at `https://aicdapi.com/server.json`, with a
 byte-identical, non-normative convenience alias at
 `https://aicdapi.com/.well-known/mcp.json`; the alias path is not part of any adopted MCP
-discovery standard.
+discovery standard. It is published in the Official MCP Registry — entry:
+https://registry.modelcontextprotocol.io/v0.1/servers/com.aicdapi%2Frecords/versions/1.0.0
 
 ## Connection
 
