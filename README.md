@@ -1,7 +1,49 @@
-# AICD API — MCP discovery record
+# AICD API — civic records API and MCP server for AI agents
 
-This repository holds the MCP discovery record for AICD API, a source-linked API and MCP
-server for Dallas-Fort Worth local-government records.
+AICD API gives AI agents and developers source-linked local-government records for
+Dallas-Fort Worth, Texas: classified city council and commissioners court agenda items,
+meeting cadence, and per-source health. Every result links back to the public government
+page it came from. It is available as a REST API and as a remote MCP server.
+
+- Website: https://aicdapi.com
+- MCP setup guide: https://aicdapi.com/help/mcp-setup
+- API reference: https://aicdapi.com/api-reference
+
+## MCP endpoint
+
+```
+https://aicdapi.com/api/v1/mcp
+```
+
+Streamable HTTP transport, authenticated with `Authorization: Bearer <AICD API key>`.
+Follow the setup guide at https://aicdapi.com/help/mcp-setup for client configuration.
+
+## REST quickstart
+
+No key needed for the public routes:
+
+```bash
+# Recent classified Dallas zoning agenda hits, each with meetingAt and sourceUrl
+curl --fail --silent --show-error \
+  'https://aicdapi.com/api/v1/public/agenda-hits?jurisdictionSlug=dallas&topicSlug=zoning'
+
+# Dated DFW coverage catalog and known gaps
+curl --fail --silent --show-error \
+  'https://aicdapi.com/api/v1/public/coverage?limit=10'
+```
+
+With an API key (create one at https://aicdapi.com/account; see
+https://aicdapi.com/help/api-keys):
+
+```bash
+curl --fail --silent --show-error \
+  --header "Authorization: Bearer $AICD_API_KEY" \
+  https://aicdapi.com/api/v1/data/health
+```
+
+## This repository
+
+This repository also holds the MCP discovery record for AICD API.
 
 - `server.json` — the record for the remote MCP server, following the official MCP
   Registry `server.json` schema (revision `2025-12-11`). Registry name:
@@ -32,12 +74,6 @@ https://registry.modelcontextprotocol.io/v0.1/servers/com.aicdapi%2Frecords/vers
 | `get_coverage` | Check supported source health |
 | `report_missing_data` | Report a missing public record |
 | `get_data_report` | Read a missing-data report status |
-
-## Public example (no key)
-
-```bash
-curl https://aicdapi.com/api/v1/public/agenda-hits
-```
 
 ## Coverage
 
